@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Информация</title>
+</head>
+<body>
+    <div>
+        <h3>Информация о пользователи</h3>
+        <table>
+            <thead>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Ид</th>
+                <td>@ViewBag.steamID64</td>
+            </tr>
+            <tr>
+                <th>Ник</th>
+                <td>@ViewBag.steamID</td>
+            </tr>
+            <tr>
+                <th>Статус</th>
+                <td>@ViewBag.onlineState</td>
+            </tr>
+                <tr>
+                    <th>Аватар</th>
+                    <td>@ViewBag.avatarIcon</td>
+                </tr>
+                <tr>
+                    <th>Дата регистрации</th>
+                    <td>@ViewBag.memberSince</td>
+                </tr>
+                <tr>
+                    <th>Проживание</th>
+                    <td>@ViewBag.location</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
