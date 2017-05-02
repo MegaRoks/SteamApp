@@ -9,44 +9,13 @@ h3 {
     color: #f7f7f7;
 }
 
-.cell, .nyr {
-    padding: 0.90em 1.5em;
-    text-align: left;
-}
-
-.nyr {
-    background-color: #0dbfe5;
-    font-weight: bold;
-    color: #f7f7f7;
-    white-space: nowrap;
-}
-
-tbody .nyr {
-    background-color: #4EA4BD;
-}
-
-tbody .row:nth-child(2n-1) {
-    background-color: #f9f9f9;
-    transition: all .125s ease-in-out;
-}
-
-/* Not needed for sticky header/column functionality */
-.cell {
-    text-transform: capitalize;
-    width: 800px;
-}
-
-.sticky-wrap.overflow-y {
-    overflow-y: auto;
-    max-height: 100vh;
-}
-
 input {
     background: #f7f7f7;
     padding: 8px;
     margin-bottom: 8px;
     width: 415px;
     color: #2b2b2b;
+    border: 0;
 }
 
 input[type='submit'] {
@@ -60,3 +29,25 @@ input[type='submit']:hover {
         background: #000000;
         color: #0dbfe5;
     }
+
+.cell, .nyr {
+    padding: 0.90em 1.5em;
+    text-align: left;
+}
+
+.nyr {
+    background-color: #0dbfe5;
+    font-weight: bold;
+    color: #f7f7f7;
+    white-space: nowrap;
+}
+.nyr {
+	background-color: #4EA4BD;
+}
+.row {
+    background-color: #f9f9f9;
+    transition: all .125s ease-in-out;
+}
+.row:hover {
+    background-color: rgba(129,208,177,.3);
+}

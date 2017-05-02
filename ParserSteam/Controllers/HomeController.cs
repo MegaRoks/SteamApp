@@ -10,23 +10,22 @@ namespace ParserSteam.Controllers
     public class HomeController : Controller
     {       
         [HttpGet]
-        public ActionResult Index(List<string> steamIDS)
+        public ActionResult Index()
         {
-            string steamID = "";
-            if (steamID  != "") {
-                //steamID = steamIDS;
-                XDocument xdoc = XDocument.Load("http://steamcommunity.com/profiles/" + steamID + "/?xml=1");
-                ViewBag.steamID64 = xdoc.Element("profile").Element("steamID64").Value;
-                ViewBag.steamID = xdoc.Element("profile").Element("steamID").Value;
-                ViewBag.onlineState = xdoc.Element("profile").Element("onlineState").Value;
-                ViewBag.avatarIcon = xdoc.Element("profile").Element("avatarIcon").Value;
-                ViewBag.memberSince = xdoc.Element("profile").Element("memberSince").Value;
-                ViewBag.location = xdoc.Element("profile").Element("location").Value;
-                return View();
-            }
-            else {
-                return View();
-            }
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Info(string steamIDS)
+        {
+            XDocument xdoc = XDocument.Load("http://steamcommunity.com/profiles/" + steamIDS + "/?xml=1");
+            ViewBag.steamID64 = xdoc.Element("profile").Element("steamID64").Value;
+            ViewBag.steamID = xdoc.Element("profile").Element("steamID").Value;
+            ViewBag.onlineState = xdoc.Element("profile").Element("onlineState").Value;
+            ViewBag.avatarIcon = xdoc.Element("profile").Element("avatarIcon").Value;
+            ViewBag.memberSince = xdoc.Element("profile").Element("memberSince").Value;
+            ViewBag.location = xdoc.Element("profile").Element("location").Value;
+            return View();
         }
     }
 }

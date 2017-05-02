@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="../../content/css/style.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Информация</title>
+</head>
+<body>
+    <div>
+        <div class="intrigue">
+            <form action="/Home/Index" method="get">
+                <h3>Укажите steamID</h3>
+                <input placeholder='Введите steamID' id="steamIDS" name="steamIDS" type="text" value="">
+                <input placeholder='Отправить' type='submit'>
+            </form>
+        </div>
+        <h3>Информация о пользователи</h3>
+        <table>
+            <thead>
+            </thead>
+            <tbody>
+                <tr class="row">
+                    <th class="nyr">Ид</th>
+                    <td class="cell">@ViewBag.steamID64</td>
+                </tr>
+                <tr class="row">
+                    <th class="nyr">Ник</th>
+                    <td class="cell">@ViewBag.steamID</td>
+                </tr>
+                <tr class="row">
+                    <th class="nyr">Статус</th>
+                    <td class="cell">@ViewBag.onlineState</td>
+                </tr>
+                <tr class="row">
+                    <th class="nyr">Аватар</th>
+                    <td class="cell"><img src="@ViewBag.avatarIcon"></td>
+                </tr>
+                <tr class="row">
+                    <th class="nyr">Дата регистрации</th>
+                    <td class="cell">@ViewBag.memberSince</td>
+                </tr>
+                <tr class="row">
+                    <th class="nyr">Проживание</th>
+                    <td class="cell">@ViewBag.location</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
