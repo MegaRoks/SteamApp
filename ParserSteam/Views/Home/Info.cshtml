@@ -79,8 +79,25 @@
                 <table>
                     <tr class="row">
                         <td class="cell">@Html.Raw(ViewBag.summary)</td>
-
                     </tr>
+                </table>
+            </div>
+            <div class="statys">
+                <h3>Неданишняя активность</h3>
+                <table>
+                    <thead>
+                        <tr class="row">
+                            <th class="nyr">Игра</th>
+                            <th class="nyr">Часы за неделю</th>
+                            <th class="nyr">Всего часов</th>
+                        </tr>
+                    </thead>
+                    <tr class="row">
+                        <td class="cell"><a href="@ViewBag.gameLink" target="_blank"><img src="@ViewBag.gameLogo" /></a></td>
+                        <td class="cell">@ViewBag.hoursPlayed</td>
+                        <td class="cell">@ViewBag.hoursOnRecord</td>
+                    </tr>
+
                 </table>
             </div>
         </div>

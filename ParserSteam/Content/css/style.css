@@ -1,8 +1,4 @@
-﻿.content{
-
-}
-
-body {
+﻿body {
     font: 14px/18px Arial, sans-serif;
     background: #2B2B2B;
 }
@@ -78,10 +74,4 @@ input[type='submit']:hover {
     width: 230px;
     height: 216px;
     float: right;
-}
-
-
-
-.statys {
-
 }

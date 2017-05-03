@@ -31,6 +31,10 @@ namespace ParserSteam.Controllers
             ViewBag.tradeBanState = xdoc.Element("profile").Element("tradeBanState").Value;
             ViewBag.isLimitedAccount = xdoc.Element("profile").Element("isLimitedAccount").Value;
             ViewBag.summary = xdoc.Element("profile").Element("summary").Value;
+            ViewBag.gameLink = xdoc.Element("profile").Element("mostPlayedGames").Element("mostPlayedGame").Element("gameLink").Value;
+            ViewBag.gameLogo = xdoc.Element("profile").Element("mostPlayedGames").Element("mostPlayedGame").Element("gameLogo").Value;
+            ViewBag.hoursPlayed = xdoc.Element("profile").Element("mostPlayedGames").Element("mostPlayedGame").Element("hoursPlayed").Value;
+            ViewBag.hoursOnRecord = xdoc.Element("profile").Element("mostPlayedGames").Element("mostPlayedGame").Element("hoursOnRecord").Value;
             return View();
         }
     }
