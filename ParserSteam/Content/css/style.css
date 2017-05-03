@@ -12,12 +12,18 @@ h3 {
 }
 
 .intrigue {
-    width: auto;
-    height: auto;
+    width: 535px;
+    height: 76px;
 }
 
 .info-profile {
     width: 535px;
+}
+
+.info-ban {
+    width: 230px;
+    height: 216px;
+    float: right;
 }
 
 form {
@@ -72,4 +78,10 @@ input[type='submit']:hover {
     width: 230px;
     height: 216px;
     float: right;
+}
+
+
+
+.statys {
+
 }
