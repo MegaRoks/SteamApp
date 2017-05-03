@@ -11,19 +11,23 @@
     <title>Информация</title>
 </head>
 <body>
-    <div>
+    <div class="content">
         <div class="intrigue">
-            <form action="/Home/Index" method="get">
+            <form action="/Home/Info" method="get">
                 <h3>Укажите steamID</h3>
                 <input placeholder='Введите steamID' id="steamIDS" name="steamIDS" type="text" value="">
                 <input placeholder='Отправить' type='submit'>
             </form>
+            <div class="avatar">
+                <table>
+                    <tr class="row">
+                        <td class="cell"><img src="@ViewBag.avatarFull" /></td>
+                </table>
+            </div>
         </div>
-        <h3>Информация о пользователи</h3>
-        <table>
-            <thead>
-            </thead>
-            <tbody>
+        <div class="info-profile">
+            <h3>Информация о пользователи</h3>
+            <table>
                 <tr class="row">
                     <th class="nyr">Ид</th>
                     <td class="cell">@ViewBag.steamID64</td>
@@ -37,8 +41,12 @@
                     <td class="cell">@ViewBag.onlineState</td>
                 </tr>
                 <tr class="row">
-                    <th class="nyr">Аватар</th>
-                    <td class="cell"><img src="@ViewBag.avatarIcon"></td>
+                    <th class="nyr">Когда был в сети</th>
+                    <td class="cell">@ViewBag.stateMessage</td>
+                </tr>
+                <tr class="row">
+                    <th class="nyr">Достутность</th>
+                    <td class="cell">@ViewBag.privacyState</td>
                 </tr>
                 <tr class="row">
                     <th class="nyr">Дата регистрации</th>
@@ -48,8 +56,29 @@
                     <th class="nyr">Проживание</th>
                     <td class="cell">@ViewBag.location</td>
                 </tr>
-            </tbody>
-        </table>
+            </table>
+            <h3>Информация о банах</h3>
+            <table>
+                <tr class="row">
+                    <th class="nyr">Vac-бан</th>
+                    <td class="cell">@ViewBag.vacBanned</td>
+                </tr>
+                <tr class="row">
+                    <th class="nyr">Treda-бан</th>
+                    <td class="cell">@ViewBag.tradeBanState</td>
+                </tr>
+                <tr class="row">
+                    <th class="nyr">Ограничения</th>
+                    <td class="cell">@ViewBag.isLimitedAccount</td>
+                </tr>
+            </table>
+            <h3>Статус</h3>
+            <table>
+                <tr class="row">
+                    <td class="cell"><img src="@ViewBag.summary"/></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 </html>

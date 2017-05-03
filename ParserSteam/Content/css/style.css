@@ -1,12 +1,28 @@
-﻿body {
+﻿.content{
+
+}
+
+body {
     font: 14px/18px Arial, sans-serif;
-    width: 100%;
-    height: 100%;
     background: #2B2B2B;
 }
 
 h3 {
     color: #f7f7f7;
+}
+
+.intrigue {
+    width: auto;
+    height: auto;
+}
+
+.info-profile {
+    width: 535px;
+}
+
+form {
+    width: 535px;
+    height: 66px;
 }
 
 input {
@@ -50,4 +66,10 @@ input[type='submit']:hover {
 }
 .row:hover {
     background-color: rgba(129,208,177,.3);
+}
+
+.avatar {
+    width: 230px;
+    height: 216px;
+    float: right;
 }
