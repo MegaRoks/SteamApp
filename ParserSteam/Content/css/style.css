@@ -7,24 +7,47 @@ h3 {
     color: #f7f7f7;
 }
 
+.content {
+    width: 100%;
+    height: auto;
+}
+
+.games {
+    width: 382px;
+    float: right;
+}
+
 .intrigue {
     width: 535px;
     height: 76px;
 }
 
 .info-profile {
-    width: 535px;
+    width: 390px;
+    height: auto;
+    float: left;
 }
 
-.info-ban {
+.info-avatar {
+    width: 330px;
+    height: auto;
+    margin-left: 8.5%;
+    margin-right: 8.5%;
+    float: left;
+}
+
+.statys {
+    width: 330px;
+    height: auto;
+    float: right
+}
+
+.avatar {
     width: 230px;
-    height: 216px;
+    height: 265px;
+    padding-left: 14%;
+    padding-right: 14%;
     float: right;
-}
-
-form {
-    width: 535px;
-    height: 66px;
 }
 
 input {
@@ -68,10 +91,4 @@ input[type='submit']:hover {
 }
 .row:hover {
     background-color: rgba(129,208,177,.3);
-}
-
-.avatar {
-    width: 230px;
-    height: 216px;
-    float: right;
 }

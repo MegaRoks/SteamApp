@@ -1,6 +1,10 @@
-﻿@{
+﻿@using ParserSteam.Models;
+
+@{
     Layout = null;
 }
+
+@model Profile
 
 <!DOCTYPE html>
 
@@ -11,93 +15,93 @@
     <title>Информация</title>
 </head>
 <body>
+    <div class="intrigue">
+        <form action="/Home/Info" method="get">
+            <h3>Укажите steamID</h3>
+            <input placeholder='Введите steamID' id="steamIDS" name="steamIDS" type="text" value="">
+            <input placeholder='Отправить' type='submit'>
+        </form>
+    </div>
     <div class="content">
-        <div class="intrigue">
-            <form action="/Home/Info" method="get">
-                <h3>Укажите steamID</h3>
-                <input placeholder='Введите steamID' id="steamIDS" name="steamIDS" type="text" value="">
-                <input placeholder='Отправить' type='submit'>
-            </form>
-        </div>
-        <div class="avatar">
-            <table>
-                <tr class="row">
-                    <td class="cell"><img src="@ViewBag.avatarFull" /></td>
-            </table>
-        </div>
-        <div class="info-ban">
-            <h3>Информация о банах</h3>
-            <table>
-                <tr class="row">
-                    <th class="nyr">Vac-бан</th>
-                    <td class="cell">@ViewBag.vacBanned</td>
-                </tr>
-                <tr class="row">
-                    <th class="nyr">Treda-бан</th>
-                    <td class="cell">@ViewBag.tradeBanState</td>
-                </tr>
-                <tr class="row">
-                    <th class="nyr">Ограничения</th>
-                    <td class="cell">@ViewBag.isLimitedAccount</td>
-                </tr>
-            </table>
-        </div>
         <div class="info-profile">
             <h3>Информация о пользователи</h3>
             <table>
                 <tr class="row">
                     <th class="nyr">Ид</th>
-                    <td class="cell">@ViewBag.steamID64</td>
+                    <td class="cell">@Model.SteamID64</td>
                 </tr>
                 <tr class="row">
                     <th class="nyr">Ник</th>
-                    <td class="cell">@ViewBag.steamID</td>
+                    <td class="cell">@Model.SteamID</td>
                 </tr>
                 <tr class="row">
                     <th class="nyr">Статус</th>
-                    <td class="cell">@ViewBag.onlineState</td>
+                    <td class="cell">@Model.OnlineState</td>
                 </tr>
                 <tr class="row">
                     <th class="nyr">Когда был в сети</th>
-                    <td class="cell">@ViewBag.stateMessage</td>
+                    <td class="cell">@Model.StateMessage</td>
                 </tr>
                 <tr class="row">
                     <th class="nyr">Достутность</th>
-                    <td class="cell">@ViewBag.privacyState</td>
+                    <td class="cell">@Model.PrivacyState</td>
                 </tr>
                 <tr class="row">
                     <th class="nyr">Дата регистрации</th>
-                    <td class="cell">@ViewBag.memberSince</td>
+                    <td class="cell">@Model.MemberSince</td>
                 </tr>
                 <tr class="row">
                     <th class="nyr">Проживание</th>
-                    <td class="cell">@ViewBag.location</td>
+                    <td class="cell">@Model.Location</td>
+                </tr>
+                <tr class="row">
+                    <th class="nyr">Vac-бан</th>
+                    <td class="cell">@Model.VacBanned</td>
+                </tr>
+                <tr class="row">
+                    <th class="nyr">Treda-бан</th>
+                    <td class="cell">@Model.TradeBanState</td>
+                </tr>
+                <tr class="row">
+                    <th class="nyr">Ограничения</th>
+                    <td class="cell">@Model.IsLimitedAccount</td>
                 </tr>
             </table>
+        </div>
+        <div class="games">
+            <h3>Недавние игры</h3>
+            <table>
+                <thead>
+                    <tr class="row">
+                        <th class="nyr">Игра</th>
+                        <th class="nyr">Ч/Н</th>
+                        <th class="nyr">Ч/В</th>
+                    </tr>
+                </thead>
+                @foreach (var b in Model.MostPlayedGames.MostPlayedGame)
+                {
+                    <tr class="row">
+                        <td class="cell"><a href="@b.GameLink" target="_blank"><img src="@b.GameLogo" /></a></td>
+                        <td class="cell">@b.HoursPlayed</td>
+                        <td class="cell">@b.HoursOnRecord</td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="info-avatar">
+            <div class="avatar">
+                <table>
+                    <h3>Аватар</h3>
+                    <tr class="row">
+                        <td class="cell"><img src="@Model.AvatarFull" /></td>
+                </table>
+            </div>
             <div class="statys">
                 <h3>Статус</h3>
                 <table>
                     <tr class="row">
-                        <td class="cell">@Html.Raw(ViewBag.summary)</td>
+                        <td class="cell">@Html.Raw(Model.Summary)</td>
                     </tr>
-                </table>
-            </div>
-            <div class="statys">
-                <h3>Неданишняя активность</h3>
-                <table>
-                    <thead>
-                        <tr class="row">
-                            <th class="nyr">Игра</th>
-                            <th class="nyr">Часы за неделю</th>
-                            <th class="nyr">Всего часов</th>
-                        </tr>
-                    </thead>
-                    <tr class="row">
-                        <td class="cell"><a href="@ViewBag.gameLink" target="_blank"><img src="@ViewBag.gameLogo" /></a></td>
-                        <td class="cell">@ViewBag.hoursPlayed</td>
-                        <td class="cell">@ViewBag.hoursOnRecord</td>
-                    </tr>
-
                 </table>
             </div>
         </div>
