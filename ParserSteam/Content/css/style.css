@@ -92,3 +92,7 @@ input[type='submit']:hover {
 .row:hover {
     background-color: rgba(129,208,177,.3);
 }
+
+.groups {
+    float: left;
+}
