@@ -59,17 +59,17 @@ input {
     border: 0;
 }
 
-input[type='submit'] {
-    text-transform: uppercase;
-    background: #0dbfe5;
-    width: 100px;
-    color: #f7f7f7;
-}
-
-input[type='submit']:hover {
-        background: #000000;
-        color: #0dbfe5;
+    input[type='submit'] {
+        text-transform: uppercase;
+        background: #4EA4BD;
+        width: 100px;
+        color: #f7f7f7;
     }
+
+        input[type='submit']:hover {
+            background: #455d53;
+            color: #000000;
+        }
 
 .cell, .nyr {
     padding: 0.90em 1.5em;
@@ -82,17 +82,67 @@ input[type='submit']:hover {
     color: #f7f7f7;
     white-space: nowrap;
 }
+
 .nyr {
-	background-color: #4EA4BD;
+    background-color: #4EA4BD;
 }
+
 .row {
     background-color: #f9f9f9;
     transition: all .125s ease-in-out;
 }
+
 .row:hover {
     background-color: rgba(129,208,177,.3);
 }
 
 .groups {
     float: left;
+}
+
+.error {
+    margin: 60px auto;
+    max-width: 958px;
+}
+
+.BG_top {
+    height: 54px;
+    text-align: left;
+    background: rgba( 0, 0, 0, 0.2 );
+    border-bottom: 1px rgba( 0, 0, 0, 0.6 );
+}
+
+
+.mainContents h2 {
+    font-weight: normal;
+    font-size: 26px;
+    color: #fff;
+}
+
+.BG_bottom {
+    text-align: left;
+}
+
+.BG_top h2 {
+    padding-top: 21px;
+    font-size: 26px;
+    color: #898989;
+    padding-left: 17px;
+}
+
+.message {
+    text-align: center;
+    background: #455d53;
+}
+
+.message h1 {
+    padding-top: 36px;
+    font-size: 18px;
+    color: #c6d4df;
+}
+
+.sectionText {
+    color: #c6d4df;
+    font-size: 12px;
+    margin-bottom: 12px;
 }

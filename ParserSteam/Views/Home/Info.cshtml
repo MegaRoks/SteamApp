@@ -24,90 +24,125 @@
     </div>
     @if (Model != null)
     {
-    <div class="content">
-        <div class="info-profile">
-            <h3>Информация о пользователи</h3>
-            <table>
-                <tr class="row">
-                    <th class="nyr">Ид</th>
-                    <td class="cell">@Model.SteamID64</td>
-                </tr>
-                <tr class="row">
-                    <th class="nyr">Ник</th>
-                    <td class="cell">@Model.SteamID</td>
-                </tr>
-                <tr class="row">
-                    <th class="nyr">Статус</th>
-                    <td class="cell">@Model.OnlineState</td>
-                </tr>
-                <tr class="row">
-                    <th class="nyr">Когда был в сети</th>
-                    <td class="cell">@Model.StateMessage</td>
-                </tr>
-                <tr class="row">
-                    <th class="nyr">Достутность</th>
-                    <td class="cell">@Model.PrivacyState</td>
-                </tr>
-                <tr class="row">
-                    <th class="nyr">Дата регистрации</th>
-                    @if (Model.MemberSince != null)
-                    {
-                        <td class="cell">@Model.MemberSince</td>
-                    }
-                    else
-                    {
-                        <td class="cell">-</td>
-                    }
-                </tr>
-                <tr class="row">
-                    <th class="nyr">Проживание</th>
-                    @if (Model.Location != null)
-                    {
-                        <td class="cell">@Model.Location</td>
-                    }
-                    else
-                    {
-                        <td class="cell">-</td>
-                    }
-                </tr>
-                <tr class="row">
-                    <th class="nyr">Vac-бан</th>
-                    <td class="cell">@Model.VacBanned</td>
-                </tr>
-                <tr class="row">
-                    <th class="nyr">Treda-бан</th>
-                    <td class="cell">@Model.TradeBanState</td>
-                </tr>
-                <tr class="row">
-                    <th class="nyr">Ограничения</th>
-                    <td class="cell">@Model.IsLimitedAccount</td>
-                </tr>
-            </table>
-            <div class="groups">
-                <h3>Группы</h3>
+        <div class="content">
+            <div class="info-profile">
+                <h3>Информация о пользователи</h3>
                 <table>
                     <tr class="row">
-                    <thead>
+                        <th class="nyr">Ид</th>
+                        <td class="cell">@Model.SteamID64</td>
+                    </tr>
+                    <tr class="row">
+                        <th class="nyr">Ник</th>
+                        <td class="cell">@Model.SteamID</td>
+                    </tr>
+                    <tr class="row">
+                        <th class="nyr">Статус</th>
+                        <td class="cell">@Model.OnlineState</td>
+                    </tr>
+                    <tr class="row">
+                        <th class="nyr">Когда был в сети</th>
+                        <td class="cell">@Model.StateMessage</td>
+                    </tr>
+                    <tr class="row">
+                        <th class="nyr">Достутность</th>
+                        <td class="cell">@Model.PrivacyState</td>
+                    </tr>
+                    <tr class="row">
+                        <th class="nyr">Дата регистрации</th>
+                        @if (Model.MemberSince != null)
+                        {
+                            <td class="cell">@Model.MemberSince</td>
+                        }
+                        else
+                        {
+                            <td class="cell">-</td>
+                        }
+                    </tr>
+                    <tr class="row">
+                        <th class="nyr">Проживание</th>
+                        @if (Model.Location != null)
+                        {
+                            <td class="cell">@Model.Location</td>
+                        }
+                        else
+                        {
+                            <td class="cell">-</td>
+                        }
+                    </tr>
+                    <tr class="row">
+                        <th class="nyr">Vac-бан</th>
+                        <td class="cell">@Model.VacBanned</td>
+                    </tr>
+                    <tr class="row">
+                        <th class="nyr">Treda-бан</th>
+                        <td class="cell">@Model.TradeBanState</td>
+                    </tr>
+                    <tr class="row">
+                        <th class="nyr">Ограничения</th>
+                        <td class="cell">@Model.IsLimitedAccount</td>
+                    </tr>
+                </table>
+                <div class="groups">
+                    <h3>Группы</h3>
+                    <table>
                         <tr class="row">
-                            <th class="nyr">Иконка</th>
-                            <th class="nyr">URL группы</th>
-                            <th class="nyr">В чате</th>
-                            <th class="nyr">Онлайн</th>
-                            <th class="nyr">В игре</th>
-                            <th class="nyr">Всего</th>
-                        </tr>
-                    </thead>
-                    @if (Model.Groups != null)
-                    {
-                        foreach (var b in Model.Groups.Group)
+                        <thead>
+                            <tr class="row">
+                                <th class="nyr">Иконка</th>
+                                <th class="nyr">URL группы</th>
+                                <th class="nyr">В чате</th>
+                                <th class="nyr">Онлайн</th>
+                                <th class="nyr">В игре</th>
+                                <th class="nyr">Всего</th>
+                            </tr>
+                        </thead>
+                        @if (Model.Groups != null)
+                        {
+                            foreach (var b in Model.Groups.Group)
+                            {
+                                <tr class="row">
+                                    <td class="cell"><img src="@b.AvatarMedium" /></td>
+                                    <td class="cell">@b.GroupURL</td>
+                                    <td class="cell">@b.MembersInChat</td>
+                                    <td class="cell">@b.MembersOnline</td>
+                                    <td class="cell">@b.MembersInGame</td>
+                                    <td class="cell">@b.MemberCount</td>
+                                </tr>
+                            }
+                        }
+                        else
                         {
                             <tr class="row">
-                                <td class="cell"><img src="@b.AvatarMedium" /></td>
-                                <td class="cell">@b.GroupURL</td>
-                                <td class="cell">@b.MembersInChat</td>
-                                <td class="cell">@b.MembersOnline</td>
-                                <td class="cell">@b.MembersInGame</td>
-                                <td class="cell">@b.MemberCount</td>
+                                <td class="cell">-</td>
+                                <td class="cell">-</td>
+                                <td class="cell">-</td>
+                                <td class="cell">-</td>
+                                <td class="cell">-</td>
+                                <td class="cell">-</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="games">
+                <h3>Недавние игры</h3>
+                <table>
+                    <thead>
+                        <tr class="row">
+                            <th class="nyr">Игра</th>
+                            <th class="nyr">Ч/Н</th>
+                            <th class="nyr">Ч/В</th>
+                        </tr>
+                    </thead>
+                    @if (Model.MostPlayedGames != null)
+                {
+                    foreach (var b in Model.MostPlayedGames.MostPlayedGame)
+                    {
+                            <tr class="row">
+                                <td class="cell"><a href="@b.GameLink" target="_blank"><img src="@b.GameLogo" /></a></td>
+                                <td class="cell">@b.HoursPlayed</td>
+                                <td class="cell">@b.HoursOnRecord</td>
                             </tr>
                         }
                     }
@@ -117,76 +152,54 @@
                             <td class="cell">-</td>
                             <td class="cell">-</td>
                             <td class="cell">-</td>
-                            <td class="cell">-</td>
-                            <td class="cell">-</td>
-                            <td class="cell">-</td>
                         </tr>
                     }
                 </table>
             </div>
-        </div>
-        <div class="games">
-            <h3>Недавние игры</h3>
-            <table>
-                <thead>
-                    <tr class="row">
-                        <th class="nyr">Игра</th>
-                        <th class="nyr">Ч/Н</th>
-                        <th class="nyr">Ч/В</th>
-                    </tr>
-                </thead>
-                @if (Model.MostPlayedGames != null)
-                {
-                    foreach (var b in Model.MostPlayedGames.MostPlayedGame)
-                    {
+            <div class="info-avatar">
+                <div class="avatar">
+                    <table>
+                        <h3>Аватар</h3>
                         <tr class="row">
-                            <td class="cell"><a href="@b.GameLink" target="_blank"><img src="@b.GameLogo" /></a></td>
-                            <td class="cell">@b.HoursPlayed</td>
-                            <td class="cell">@b.HoursOnRecord</td>
+                            <td class="cell"><img src="@Model.AvatarFull" /></td>
+                    </table>
+                </div>
+                <div class="statys">
+                    <h3>Статус</h3>
+                    <table>
+                        <tr class="row">
+                            @if (Model.Summary != null)
+                            {
+                                <td class="cell">@Html.Raw(Model.Summary)</td>
+                            }
+                            else
+                            {
+                                <td class="cell">-</td>
+                            }
                         </tr>
-                    }
-                }
-                else
-                {
-                    <tr class="row">
-                        <td class="cell">-</td>
-                        <td class="cell">-</td>
-                        <td class="cell">-</td>
-                    </tr>
-                }
-            </table>
-        </div>
-        <div class="info-avatar">
-            <div class="avatar">
-                <table>
-                    <h3>Аватар</h3>
-                    <tr class="row">
-                        <td class="cell"><img src="@Model.AvatarFull" /></td>
-                </table>
-            </div>
-            <div class="statys">
-                <h3>Статус</h3>
-                <table>
-                    <tr class="row">
-                        @if (Model.Summary != null)
-                        {
-                            <td class="cell">@Html.Raw(Model.Summary)</td>
-                        }
-                        else
-                        {
-                            <td class="cell">-</td>
-                        }
-                    </tr>
-                </table>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
     }
     else
     {
         <div class="error">
-            Ошибка
+            <div class="BG_top">
+                <div class="mainContents">
+                    <h2>Ошибка</h2>
+                </div>
             </div>
+            <div class="BG_bottom">
+                <div class="message">
+                    <h1>Сожалею!</h1>
+                    <p class="sectionText">
+                        Произошла ошибка при обработке запрос.<br><br>
+                    </p>
+                    <h3>Ни один пользователь не может быть отображен.</h3><br><br>
+                </div>
+            </div>
+        </div>
     }
 </body>
 </html>
