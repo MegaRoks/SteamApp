@@ -11,12 +11,34 @@
     <title>Информация</title>
 </head>
 <body>
-    <div class="intrigue">
-        <form action="/Home/Info" method="get">
-            <h3>Укажите steamID</h3>
-            <input placeholder='Введите steamID' id="steamIDS" name="steamIDS" type="text" value="">
-            <input placeholder='Отправить' type='submit'>
-        </form>
-    </div>
+    @if (ViewBag.result  == 1)
+    {
+        <div class="intrigue">
+            <form action="/Home/Info" method="get">
+                <h3>Укажите steamID</h3>
+                <input placeholder='Введите steamID' id="steamIDS" name="steamIDS" type="text" value="">
+                <input placeholder='Отправить' type='submit'>
+            </form>
+        </div>
+    }
+    else 
+    {
+        <div class="error">
+            <div class="BG_top">
+                <div class="mainContents">
+                    <h2>Ошибка</h2>
+                </div>
+            </div>
+            <div class="BG_bottom">
+                <div class="message">
+                    <h1>Сожалею!</h1>
+                    <p class="sectionText">
+                        Произошла ошибка при обработке запроса.<br><br>
+                    </p>
+                    <h3>Отсуствует подключения к интернету.</h3><br><br>
+                </div>
+            </div>
+        </div>
+    }
 </body>
 </html>

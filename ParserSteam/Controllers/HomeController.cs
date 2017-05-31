@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using System.Net;
 
 namespace ParserSteam.Controllers
 {
@@ -14,6 +15,15 @@ namespace ParserSteam.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            try
+            {
+                IPHostEntry i = Dns.GetHostEntry("www.google.com");
+                ViewBag.result = 1;
+            }
+            catch
+            {
+                ViewBag.result = 2;
+            }
             return View();
         }
 
@@ -25,11 +35,27 @@ namespace ParserSteam.Controllers
             Profile result;
             if (long.TryParse(steamIDS, out d))
             {
-                xdoc = XDocument.Load("http://steamcommunity.com/profiles/" + steamIDS + "/?xml=1");
+                try
+                {
+                    xdoc = XDocument.Load("http://steamcommunity.com/profiles/" + steamIDS + "/?xml=1");
+                }
+                catch
+                {
+                    return View("~/Views/Home/Index.cshtml");
+                    ViewBag.result = 2;
+                }
             }
             else
             {
-                xdoc = XDocument.Load("http://steamcommunity.com/id/" + steamIDS + "/?xml=1");
+                try
+                {
+                    xdoc = XDocument.Load("http://steamcommunity.com/id/" + steamIDS + "/?xml=1");
+                }
+                catch
+                {
+                    return View("~/Views/Home/Index.cshtml");
+                    ViewBag.result = 2;
+                }
             }
             try
             {
@@ -42,12 +68,12 @@ namespace ParserSteam.Controllers
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 result = null;
                 ViewBag.error = ex.Message;
             }
-            
+
             return View(result);
         }
 
