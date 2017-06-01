@@ -37,6 +37,7 @@ namespace ParserSteam.Controllers
             {
                 try
                 {
+                    IPHostEntry i = Dns.GetHostEntry("www.google.com");
                     xdoc = XDocument.Load("http://steamcommunity.com/profiles/" + steamIDS + "/?xml=1");
                 }
                 catch
@@ -49,6 +50,7 @@ namespace ParserSteam.Controllers
             {
                 try
                 {
+                    IPHostEntry i = Dns.GetHostEntry("www.google.com");
                     xdoc = XDocument.Load("http://steamcommunity.com/id/" + steamIDS + "/?xml=1");
                 }
                 catch
